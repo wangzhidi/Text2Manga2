@@ -1,0 +1,47 @@
+# ===== 大型图片/输出文件夹 =====
+image/
+final/
+bgm/
+books/
+script/
+with_text/
+models/
+原图一期/
+原图二期/
+原图三期/
+原图四期/
+原图五期/
+原图六期/
+乙向/
+起点小说/
+
+# ===== ML 模型文件 =====
+models/
+*.pt
+*.bin
+*.param
+*.exe
+*.csv
+
+# ===== Python 缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===== 环境变量（含敏感信息）=====
+.env
+
+# ===== 运行时数据 =====
+sessions/
+users/
+private_profiles/
+
+# ===== 临时/测试输出 =====
+output.png
+z其他/
+*.xlsx
+
+# ===== 杂项 =====
+*.log
+__bilibili_preview_cache__/

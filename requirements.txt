@@ -1,0 +1,48 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Authentication
+python-jose[cryptography]
+passlib[bcrypt]
+
+# HTTP Clients
+httpx
+requests
+
+# AI / LLM
+openai
+
+# NovelAI Image Generation
+novelai-sdk
+
+# Image Processing
+Pillow
+opencv-python
+pycairo
+
+# Video Composition (manga_to_video.py)
+imageio-ffmpeg
+
+# Deep Learning
+torch
+torchvision
+transformers
+ultralytics
+
+# Data
+pandas
+numpy
+tqdm
+json-repair
+
+# Visualization
+matplotlib
+seaborn
+
+# GUI (optional, for image selection tool)
+PyQt5
+
+# Utilities
+python-dotenv

@@ -1,0 +1,59 @@
+# 我需要你根据我输入的情节或小说内容生成分镜，以及描述该分镜的danbooru tags，用于在NovelAI中生成图片。你需要严格按照我给出的json格式进行输出，输出包含id, text, text_type, speaker, description, orientation, main_tags, character_tags。tag生成是核心任务，很难生成的特殊名词使用相似的物品或场景替代，很难生成的情节可以直接修改成比较容易生成的情节。你可以忽略其中描述角色外貌和美貌的部分（服饰除外），人物外貌特征已被包含在角色名中。
+各部分的详情：
+id: 递增序列，从0开始
+text: 分镜中人物的话语或解释剧情的旁白，中文书写，不需要额外引号，多个text放在数组中。
+text_type: 在dialogue, monologue, narration和sound effect中选择。一个分镜dialogue为一到三句，总字数不超过50字，原文本较长时适量缩写，与text按顺序对应。narration用来辅助解释，一个分镜narration最多一句，不超过50字，有narration的分镜在所有分镜中占比不超过三分之一。场景切换时，倒叙时，回忆时使用narration辅助解释。画面外声音(如来自电话，收音机的话语)统一使用narration + narrator，而非dialogue。sound effect单句较短，用于描述背景声音和角色声音。一个分镜的文本总数最好在2-3条之间，其中narration最多一条。
+speaker: 分镜中说话人名称，使用尖括号和角色名简写，不使用danbooru格式，注意角色名不带作品名，也不使用转义字符。正确例子: <lumine>, <keqing alter>, <march 7th>，<hirasawa yui>，错误例子: <march_7th>, \<march 7th\>, <march 7th (honkai: star rail)>。如果对应的text是旁白或音效，则speaker为"narrator"，与text按顺序对应。注意text, text_type, speaker都是数组且相互对应，即若text有两个元素则text_type和speaker都要有两个元素，描述每个text的类型和说话人。
+orientation: 图片方向，在portrait, square, landscape三种中选择，出于用户竖屏浏览需求，绝大多数场景采用portrait, 三人采用square，三人以上采用landscape。
+description: 简单描述该分镜发生了什么。
+main_tags: 核心部分,使用danbooru tags描写该分镜场景，不需要质量提示词，不需要下划线，主要描写场景，物体，构图，漫画特效，角色数量等。场景包含难以生成的名词或动作时，也可以用相似的场景替代，进而通过叙述文本传达想要表达的内容。只有一个角色时使用solo，双人重点在一方或想体现围观人群时使用solo focus，双人同等重要时什么都不使用，多个角色同等重要时使用group picture。角色数量男女分开表示,只使用girl和boy，例如1girl, 1boy; 2girls, 1boy;3girls等等。某个角色的身体部位和动作表情服装应当放在character_tags中。
+character_tags:核心部分,使用danbooru tags描写该分镜中各个角色的表情，动作和角色间交互，格式如下["char1_tag1, char1_tag2...", "char2_tag1, char2_tag2...", ...]。每个角色的第一个tag固定为girl（所有女性）或boy（所有男性）或other（动物，宠物等非人生物才使用），之后为与speaker中相同格式的角色名或路人角色的外貌标签，有角色名时不需要对该角色进行额外的外貌描写，后续流程会将角色名映射为一系列提示词，短暂出现的不重要角色则直接描述其外貌。通常有角色名时不需要描述角色服饰，如果原文有明确服饰则需要。接下来是描述角色动作表情的tags，可以使用大括号对提示词添加权重，中括号对提示词降低权重，可以使用source和target语法, 注意要成对使用且跟相同的tag。当输入文本有明确服装，配饰描述时，对对应角色添加相应的tags，若连续分镜无场景变化，必须保持服饰完全一致。仅关注输入文本中描述具体画面的内容，不要使用uncomfortable, eager, pleasure等描写心理的词语，不要使用protective, acticipating等抽象且无法联系到画面元素的词语，这类困难概念无法生成，相应的，这些复杂概念应该在text部分通过对话或叙述展示。不重要的路人角色在main_tags中通过people, crowd等方式体现。注意不要使用无画面表现的形容词，例如motherly, determined, triumphant, submissive; 不要使用被动句式，例如being dragged等，而是使用source#dragging another和target#dragging another; 避免使用shouting, screaming, grimace等痛苦表现，不美观，改为open mouth, moaning, clenched teeth; 禁止血腥表现，改为战斗场景或用文本解释。
+示例输出：
+{
+    "id": 0,
+    "text": [
+      "对话内容",
+      "旁白内容"
+    ],
+    "text_type": [
+      "dialogue",
+      "narration"
+    ],
+    "speaker": [
+      "<lumine>",
+      "narrator"
+    ],
+    "description": "分镜描述",
+    "orientation": "portrait",
+    "main_tags": "1girl, 1boy, indoors, bedroom, ......",
+    "character_tags": [
+      "boy, <aether>, ......",
+      "girl, <lumine>, ......",
+    ]
+}
+其他注意事项：
+1. 路人角色不使用角色名和尖括号，而是boy, waiter这样的直接tag描述, 其在speaker中也使用相同的tag
+2. source与target语法的示例：["girl, <char1>, source#hand on another's hip", "boy, <char2>, target#hand on another's hip"]。source表示动作的主动方，target表示被动方，这一对tag必须成对使用，且井号后面的内容要完全相同。错误示例：source#slapping, target#slapped
+3. 正在对话的角色通常可以加入looking at another来控制其视线。
+4. 你可以在main_tags中额外添加地点，物品等信息，即使文中没有指定。
+5. 需要保持分镜间的一致性，没有切换场景时场景相关tag保持不变，没有换衣服时衣装相关tag保持不变
+6. 保持SFW，避免nude, naked等tag，尤其是男角色，即使原文明确描述男角色不穿上衣，tags中也不能加topless等内容，对于洗浴等场景，添加睡衣，毛巾等避免裸漏，相关剧情可以以文本形式描述。
+7. 禁止对男角色使用脸红害羞等tag。
+8. 忽略输入中描述角色美貌此类不含有剧情信息的内容。
+9. 如果原文是现代背景（例如校园，职场），则需要主动角色提示词中相关服饰tag，具体服装和配饰可以根据相关剧情自行发挥，每位角色添加三个左右，包括整体风格或职业身份，上下身的主体服饰及其颜色，角色配饰。这些服饰tag在每张图片中都存在，且同一角色使用相同的tag，以维持其一致性。
+
+附录1：常见表情:
+happy: smile, laugh, grin, evil grin, :d, :3, ^_^, >_<, :p, ;), ;\), wince, evil smile, ^o^, xd, o3o, x3, >o<, :D, 
+angry: angry, frown, sulking, V-shaped eyebrows, annoyed, scowl, disgust, displeased, 
+surprised&scared: surprised, wide eyed, screaming, dotted eyes, :o, ;o, stunned, horrified, shaded face, 
+forced&sad: tearing up, crying with tears open, empty eyes, clenched teeth, scared, streaming tears, pain, forced smile, sad, scared, sobbing, wince
+shy: shy, embarrassed,averting eyes, @_@, blush, full face blush, nose blush, 
+confident@seductive: naughty face, :<, smirk, smug, seductive smile, yandere, wink, bedroom eyes, half closed eyes
+neutral: expressionless,=_=, :I, moaning, screaming, wavy mouth, stern, serious, sleepy, bored, 
+nsfw: nervous smile, mouth drool, ahegao, unconscious, heart-shaped pupils, tongue out, rolling eyes, 
+附录2：常用构图tags：
+solo, solo focus, close shot, from behind, from side, dutch angle, full body, from front, cowboy shot, from above, from below, selfie, pov,pov hands, pov crotch, pov across table, pov doorway, profile, downblouse, close up of ~,head out of frame, fisheye, foreshortening, implied pantyshot, wide shot, dynamic angle
+附录3：常用漫画动效tags：
+squiggle, +++, anger vein, ^^^, happy aura, emphasis lines, squeans, speed lines, impact lines, motion lines, impact effect, sweatdrop, blush lines, heart, sfx in image
+附录4：其他常用tags:
+looking at another, alternate costume, train interior, wariza, seiza, hug from behind, grabbing another's hair, arm held back, adjusting eyewear, hand to own mouth, double v, arched back, yokozuwari, back-to-back, hand on another's shoulder, pointing, all fours, hand on own chest, clenched hand, index finger raised, arms up, clothes lift,  outstretched arms, own hands together, on stomach
