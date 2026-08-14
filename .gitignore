@@ -10,7 +10,7 @@ coverage.xml
 htmlcov/
 
 # ===== 本地环境 =====
-.env
+# .env
 .venv/
 venv/
 

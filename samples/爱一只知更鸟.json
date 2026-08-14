@@ -1,0 +1,555 @@
+[
+  {
+    "id": -1,
+    "original_author": "利蒲是coconut",
+    "platform": "bilibili",
+    "title": "爱一只知更鸟",
+    "url": "https://space.bilibili.com/416166156/upload/opus"
+  },
+  {
+    "id": 0,
+    "text": [
+      "要我去应援吗？",
+      "拿着应援棒在台底下跳应援舞吗？舞台上可全是你认识的人，不嫌丢人？"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "boy, grey hair",
+      "girl, blue hair"
+    ],
+    "description": "穹和知更鸟坐在摆满周边玩具的房间里聊天，知更鸟正在脱下外套。",
+    "orientation": "landscape",
+    "main_tags": "1boy, 1girl, indoors, bedroom, stuffed toys, messy room, sitting on floor",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), looking at another",
+      "girl, robin (honkai: star rail), taking off coat, looking at another, smiling"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/0_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/0_2.png"
+    ]
+  },
+  {
+    "id": 1,
+    "text": [
+      "能给你加油鼓劲就好。",
+      "算了吧，我会笑场的。"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "boy, grey hair",
+      "girl, blue hair"
+    ],
+    "description": "穹微笑着表示支持，知更鸟则摆摆手觉得会忍不住笑。",
+    "orientation": "landscape",
+    "main_tags": "1boy, 1girl, indoors, bedroom, stuffed toys, sitting on floor",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), smiling, encouraging, looking at another",
+      "girl, robin (honkai: star rail), shaking head, smiling, closed eyes"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/1_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/1_2.png"
+    ]
+  },
+  {
+    "id": 2,
+    "text": [
+      "哦……我好失望啊~",
+      "哪有把失望说出来的啊。"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "boy, grey hair",
+      "girl, blue hair"
+    ],
+    "description": "穹装作失望的样子，知更鸟伸手捏了捏他的脸颊。",
+    "orientation": "square",
+    "main_tags": "1boy, 1girl, indoors, close-up",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), pouting, fake disappointment",
+      "girl, robin (honkai: star rail), pinching another's cheek, affectionate look, smiling"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/2_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/2_2.png"
+    ]
+  },
+  {
+    "id": 3,
+    "text": [
+      "别闹啦，乖乖坐着听就好，我会在台上找你的，记得接好我的眼神哦~"
+    ],
+    "text_type": [
+      "dialogue"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "知更鸟凑近穹，眼神中充满期待与爱意。",
+    "orientation": "portrait",
+    "main_tags": "solo focus, 1girl, indoors, close-up",
+    "character_tags": [
+      "girl, robin (honkai: star rail), pointing at viewer, winking, smiling, confident"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/3_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/3_2.png"
+    ]
+  },
+  {
+    "id": 4,
+    "text": [
+      "不久前两人秘密确定了关系，穹为爱人跑遍宇宙筹办了这场演唱会。"
+    ],
+    "text_type": [
+      "narration"
+    ],
+    "speaker": [
+      "narrator"
+    ],
+    "description": "演唱会开场，知更鸟走上舞台中心开始唱歌。",
+    "orientation": "portrait",
+    "main_tags": "solo, 1girl, stage, spotlight, concert, crowd in background",
+    "character_tags": [
+      "girl, robin (honkai: star rail), idol dress, holding microphone, singing, closed eyes, expressive"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/4_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/4_2.png"
+    ]
+  },
+  {
+    "id": 5,
+    "text": [
+      "穹坐在正前方的C位，全神贯注地看着舞台上的女友暗自得意。"
+    ],
+    "text_type": [
+      "narration"
+    ],
+    "speaker": [
+      "narrator"
+    ],
+    "description": "穹坐在前排正中央，手里拿着应援棒。",
+    "orientation": "portrait",
+    "main_tags": "solo, 1boy, audience seat, concert, front row",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), sitting, holding light stick, focused, looking at stage, smiling"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/5_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/5_2.png"
+    ]
+  },
+  {
+    "id": 6,
+    "text": [
+      "♪～～"
+    ],
+    "text_type": [
+      "sound effect"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "知更鸟在台上做出刻意的互动动作，向穹的方向看去。",
+    "orientation": "portrait",
+    "main_tags": "solo, 1girl, stage, spotlight, concert",
+    "character_tags": [
+      "girl, robin (honkai: star rail), idol dress, waving, looking at viewer, winking, smiling"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/6_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/6_2.png"
+    ]
+  },
+  {
+    "id": 7,
+    "text": [
+      "她一直在向这边招手！",
+      "她笑的好好看啊~"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "narrator",
+      "narrator"
+    ],
+    "description": "身边的粉丝疯狂尖叫，穹才发现知更鸟在看着自己。",
+    "orientation": "landscape",
+    "main_tags": "1boy, crowd, concert, audience seat, waving light sticks",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), surprised, looking at stage"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/7_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/7_2.png"
+    ]
+  },
+  {
+    "id": 8,
+    "text": [
+      "穹呆呆地举着发光的应援棒，坐在位置上不知所措。"
+    ],
+    "text_type": [
+      "narration"
+    ],
+    "speaker": [
+      "narrator"
+    ],
+    "description": "穹像个木头一样举着应援棒发愣。",
+    "orientation": "portrait",
+    "main_tags": "solo, 1boy, audience seat, concert",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), dumbfounded, blank stare, holding glowing light stick, sitting motionless"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/8_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/8_2.png"
+    ]
+  },
+  {
+    "id": 9,
+    "text": [
+      "噗……"
+    ],
+    "text_type": [
+      "sound effect"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "看到穹呆呆的模样，知更鸟趁着没有歌词偷偷笑出声。",
+    "orientation": "portrait",
+    "main_tags": "solo, 1girl, stage, close-up",
+    "character_tags": [
+      "girl, robin (honkai: star rail), idol dress, hand over mouth, giggling, holding microphone, looking at viewer"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/9_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/9_2.png"
+    ]
+  },
+  {
+    "id": 10,
+    "text": [
+      "这不还是笑场了吗……我做什么了吗……",
+      "一直都很呆呢~"
+    ],
+    "text_type": [
+      "monologue",
+      "monologue"
+    ],
+    "speaker": [
+      "boy, grey hair",
+      "girl, blue hair"
+    ],
+    "description": "穹在座位上摸着后脑勺回想，脑补着知更鸟吐槽自己呆。",
+    "orientation": "square",
+    "main_tags": "solo, 1boy, audience seat",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), confused, hand on head, looking at stage"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/10_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/10_2.png"
+    ]
+  },
+  {
+    "id": 11,
+    "text": [
+      "演出顺利结束，观众渐渐离开座位，穹却久久坐在原地未动。"
+    ],
+    "text_type": [
+      "narration"
+    ],
+    "speaker": [
+      "narrator"
+    ],
+    "description": "演唱会结束后，穹独自坐在空荡荡的观众席中等待。",
+    "orientation": "landscape",
+    "main_tags": "solo, 1boy, empty venue, audience seat, after concert",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), sitting alone, waiting"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/11_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/11_2.png"
+    ]
+  },
+  {
+    "id": 12,
+    "text": [
+      "猜猜我是谁？"
+    ],
+    "text_type": [
+      "dialogue"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "一双柔软的手突然从背后捂住了穹的眼睛。",
+    "orientation": "square",
+    "main_tags": "1boy, 1girl, audience seat, from behind",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), sitting, surprised",
+      "girl, robin (honkai: star rail), short hair, wig, boys clothes, crossdressing, disguise, standing behind another, covering another's eyes, smiling"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/12_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/12_2.png"
+    ]
+  },
+  {
+    "id": 13,
+    "text": [
+      "你怎么……观众还没走完，你怎么就过来了？",
+      "我戴了假发，换了身男装，他们看不出来。"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "boy, grey hair",
+      "girl, blue hair"
+    ],
+    "description": "穹转过头，知更鸟向他展示自己的男装伪装。",
+    "orientation": "square",
+    "main_tags": "1boy, 1girl, audience seat",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), looking back, surprised",
+      "girl, robin (honkai: star rail), short hair, wig, boys clothes, pants, shirt, crossdressing, proud, hands on hips, smiling"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/13_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/13_2.png"
+    ]
+  },
+  {
+    "id": 14,
+    "text": [
+      "那就好……演出很棒，夸夸你。"
+    ],
+    "text_type": [
+      "dialogue"
+    ],
+    "speaker": [
+      "boy, grey hair"
+    ],
+    "description": "知更鸟跨过座位，来到穹身边并握住了他的手。",
+    "orientation": "landscape",
+    "main_tags": "1boy, 1girl, audience seat, sitting together",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), smiling, praising, holding another's hands",
+      "girl, robin (honkai: star rail), short hair, wig, boys clothes, sitting next to another, holding another's hands, happy"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/14_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/14_2.png"
+    ]
+  },
+  {
+    "id": 15,
+    "text": [
+      "最近……谢谢你啦……",
+      "没什么，只是想为你做点事。"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "girl, blue hair",
+      "boy, grey hair"
+    ],
+    "description": "两人手牵着手，在空旷的座位上深情对视。",
+    "orientation": "square",
+    "main_tags": "1boy, 1girl, audience seat, close-up, eye contact",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), gentle look, looking at another",
+      "girl, robin (honkai: star rail), short hair, wig, looking at another, affectionate"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/15_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/15_2.png"
+    ]
+  },
+  {
+    "id": 16,
+    "text": [
+      "不只是演唱会……我还想谢谢你……给我带来了些新的体验。",
+      "我想做个贪心的人，以后再多给我些，好吗？"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "girl, blue hair",
+      "girl, blue hair"
+    ],
+    "description": "知更鸟双手抚上穹的脸颊，脸蛋发热，眼中满是柔情。",
+    "orientation": "portrait",
+    "main_tags": "1boy, 1girl, close-up",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), looking at another",
+      "girl, robin (honkai: star rail), short hair, wig, blushing, hands on another's face, staring intently, watery eyes, loving look"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/16_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/16_2.png"
+    ]
+  },
+  {
+    "id": 17,
+    "text": [
+      "亲……亲一下……"
+    ],
+    "text_type": [
+      "dialogue"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "知更鸟微微闭眼，向穹索吻。",
+    "orientation": "square",
+    "main_tags": "1boy, 1girl, close-up",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), surprised",
+      "girl, robin (honkai: star rail), short hair, wig, blushing, half-closed eyes, leaning in, asking for a kiss"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/17_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/17_2.png"
+    ]
+  },
+  {
+    "id": 18,
+    "text": [
+      "呜……"
+    ],
+    "text_type": [
+      "sound effect"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "穹顺着她的动作将其拥入怀中，两人在观众席深吻。",
+    "orientation": "portrait",
+    "main_tags": "1boy, 1girl, kissing, hugging, audience seat, romantic",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), eyes closed, kissing another, hugging",
+      "girl, robin (honkai: star rail), short hair, wig, boys clothes, eyes closed, kissing another, being hugged"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/18_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/18_2.png"
+    ]
+  },
+  {
+    "id": 19,
+    "text": [
+      "走吧，回房间里……",
+      "嗯……回房间里……"
+    ],
+    "text_type": [
+      "dialogue",
+      "dialogue"
+    ],
+    "speaker": [
+      "boy, grey hair",
+      "girl, blue hair"
+    ],
+    "description": "一吻结束，穹捏着知更鸟的脸，知更鸟眼神迷离。",
+    "orientation": "square",
+    "main_tags": "1boy, 1girl, close-up",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), pinching another's cheek, gentle smile",
+      "girl, robin (honkai: star rail), short hair, wig, blushing, blurry eyes, looking at another"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/19_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/19_2.png"
+    ]
+  },
+  {
+    "id": 20,
+    "text": [
+      "结果知更鸟就像被打开了什么开关一般，一直咬着穹的嘴唇不肯放。"
+    ],
+    "text_type": [
+      "narration"
+    ],
+    "speaker": [
+      "narrator"
+    ],
+    "description": "回到房间后，知更鸟卸下了伪装，在夜色中与穹深情缠绵。",
+    "orientation": "portrait",
+    "main_tags": "1boy, 1girl, indoors, bedroom, night, kissing, deep kiss, hugging closely, passionate",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), eyes closed, kissing",
+      "girl, robin (honkai: star rail), long hair, nightgown, eyes closed, biting another's lip, kissing, passionate"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/20_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/20_2.png"
+    ]
+  },
+  {
+    "id": 21,
+    "text": [
+      "哈——"
+    ],
+    "text_type": [
+      "sound effect"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "新的一天早晨，知更鸟在床上睡眼惺忪地打着哈欠。",
+    "orientation": "landscape",
+    "main_tags": "solo focus, 1girl, indoors, bedroom, bed, morning, sunlight, blanket",
+    "character_tags": [
+      "girl, robin (honkai: star rail), long hair, messy hair, yawning, rubbing eyes, sleepy, lying in bed"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/21_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/21_2.png"
+    ]
+  },
+  {
+    "id": 22,
+    "text": [
+      "喜欢你哦……"
+    ],
+    "text_type": [
+      "dialogue"
+    ],
+    "speaker": [
+      "girl, blue hair"
+    ],
+    "description": "知更鸟摸着腰间穹熟睡的手，露出幸福的笑容。",
+    "orientation": "landscape",
+    "main_tags": "1boy, 1girl, indoors, bed, morning, hugging from behind, under blanket",
+    "character_tags": [
+      "boy, caelus (honkai: star rail), sleeping, hugging another from behind, arms around waist",
+      "girl, robin (honkai: star rail), smiling, touching another's hand, happy, loving look"
+    ],
+    "image_path": [
+      "image/利蒲是coconut/爱一只知更鸟/22_1.png",
+      "image/利蒲是coconut/爱一只知更鸟/22_2.png"
+    ]
+  }
+]

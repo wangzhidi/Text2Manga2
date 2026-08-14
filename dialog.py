@@ -677,7 +677,7 @@ def process_item(item, book_id, chapter, output_base_dir):
                 # 绘制
                 if best_dialogue_box:
                     existing_obstacles.append(best_dialogue_box)
-
+                # 若系统中缺少此字体，将导致生成的图片中文字为方框，可自行下载或改为其他中文字体，如"SimHei"、"Microsoft YaHei"等
                 ctx.select_font_face("HYWenHei 55W", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
                 ctx.set_font_size(36)
                 
