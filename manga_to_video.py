@@ -25,7 +25,7 @@ FOLDER = r"final\原图一期\寡妇荧妹和女儿派\漫画版"  # 图片文�
 TAGS = ["原神"]  # 用于挑选 BGM 的标签（任意命中即可），留空 [] 或 None 则从全部 BGM 中随机选取
 DURATION = 2.0  # 每张图片展示时长（秒）
 TRANSITION = "fade"  # 切换方式，见下方 ALL_TRANSITION_CHOICES；"random" 表示每次切换随机挑选
-TRANSITION_DURATION = 0.6  # 切换动画时长（秒），设为 0 等价于硬切
+TRANSITION_DURATION = 0.4  # 切换动画时长（秒），设为 0 等价于硬切
 FPS = 30  # 视频帧率
 FIT_MODE = "blur"  # 非 832x1216 比例图片的留白填充方式："blur"(模糊背景) / "white" / "black"
 BGM_VOLUME = 0.6  # 背景音乐音量比例
@@ -276,7 +276,7 @@ def pick_bgm(tags, rng: random.Random) -> Path | None:
 
 # 画质优先：低 CRF + slow 预设 + 动画调优，不考虑文件体积
 VIDEO_CODEC_ARGS = [
-    "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", "14", "-pix_fmt", "yuv420p",
+    "-c:v", "h264_nvenc", "-preset", "slow", "-tune", "hq", "-cq", "14", "-b:v", "0", "-pix_fmt", "yuv420p",
 ]
 
 

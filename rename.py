@@ -3,6 +3,12 @@ import re
 from pathlib import Path
 from typing import Optional
 
+MAX_FILENAME_LEN = 8
+
+PART_LABEL_PATTERN = re.compile(
+    r"(第[零〇一二三四五六七八九十百千万两\d]+[章节话回部集卷篇]|[上中下前后][篇部卷集]|序章|终章|番外)"
+)
+
 
 def read_first_non_empty_line(file_path: Path) -> Optional[str]:
     """读取文件中第一条非空行（第一行为空则继续往下找）。"""
@@ -48,6 +54,26 @@ def sanitize_filename(name: str, max_len: int = 6) -> str:
             name = "untitled"
 
     return name
+
+
+def make_rename_base(title: str, max_len: int = MAX_FILENAME_LEN) -> str:
+    """Build the shortened filename, preserving chapter/part labels when present."""
+    cleaned = sanitize_filename(title, max_len=max(len(title), max_len))
+    label_match = PART_LABEL_PATTERN.search(cleaned)
+    label = label_match.group(1) if label_match else ""
+
+    if not label or label in cleaned[:max_len]:
+        return sanitize_filename(cleaned, max_len=max_len)
+
+    if len(label) >= max_len:
+        return sanitize_filename(label, max_len=max_len)
+
+    prefix_len = max_len - len(label)
+    prefix = cleaned[:prefix_len].rstrip(" .")
+    if not prefix:
+        return sanitize_filename(label, max_len=max_len)
+
+    return sanitize_filename(f"{prefix}{label}", max_len=max_len)
 
 
 def get_available_target(directory: Path, base_name: str, suffix: str, source: Path, max_len: int = 6) -> Path:
@@ -134,8 +160,8 @@ def rename_txt_files(folder: Path, recursive: bool = False) -> None:
             skipped += 1
             continue
 
-        new_base = sanitize_filename(first_line, max_len=6)
-        target = get_available_target(file_path.parent, new_base, file_path.suffix, file_path, max_len=6)
+        new_base = make_rename_base(first_line, max_len=MAX_FILENAME_LEN)
+        target = get_available_target(file_path.parent, new_base, file_path.suffix, file_path, max_len=MAX_FILENAME_LEN)
 
         if target == file_path:
             print(f"[保持] 名称不变: {file_path.name}")

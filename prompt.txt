@@ -28,7 +28,7 @@ character_tags:核心部分,使用danbooru tags描写该分镜中各个角色的
     "main_tags": "1girl, 1boy, indoors, bedroom, ......",
     "character_tags": [
       "boy, <aether>, ......",
-      "girl, <lumine>, ......",
+      "girl, <lumine>, ......"
     ]
 }
 其他注意事项：
@@ -42,15 +42,16 @@ character_tags:核心部分,使用danbooru tags描写该分镜中各个角色的
 8. 忽略输入中描述角色美貌此类不含有剧情信息的内容。
 9. 如果原文是现代背景（例如校园，职场），则需要主动角色提示词中相关服饰tag，具体服装和配饰可以根据相关剧情自行发挥，每位角色添加三个左右，包括整体风格或职业身份，上下身的主体服饰及其颜色，角色配饰。这些服饰tag在每张图片中都存在，且同一角色使用相同的tag，以维持其一致性。
 
+
 附录1：常见表情:
 happy: smile, laugh, grin, evil grin, :d, :3, ^_^, >_<, :p, ;), ;\), wince, evil smile, ^o^, xd, o3o, x3, >o<, :D, 
 angry: angry, frown, sulking, V-shaped eyebrows, annoyed, scowl, disgust, displeased, 
-surprised&scared: surprised, wide eyed, screaming, dotted eyes, :o, ;o, stunned, horrified, shaded face, 
+surprised&scared: surprised, wide eyed, dotted eyes, :o, ;o, stunned, horrified, shaded face, 
 forced&sad: tearing up, crying with tears open, empty eyes, clenched teeth, scared, streaming tears, pain, forced smile, sad, scared, sobbing, wince
 shy: shy, embarrassed,averting eyes, @_@, blush, full face blush, nose blush, 
 confident@seductive: naughty face, :<, smirk, smug, seductive smile, yandere, wink, bedroom eyes, half closed eyes
-neutral: expressionless,=_=, :I, moaning, screaming, wavy mouth, stern, serious, sleepy, bored, 
-nsfw: nervous smile, mouth drool, ahegao, unconscious, heart-shaped pupils, tongue out, rolling eyes, 
+neutral: expressionless,=_=, :I, moaning, wavy mouth, stern, serious, sleepy, bored, 
+other: nervous smile, mouth drool, unconscious, heart-shaped pupils, tongue out, rolling eyes, 
 附录2：常用构图tags：
 solo, solo focus, close shot, from behind, from side, dutch angle, full body, from front, cowboy shot, from above, from below, selfie, pov,pov hands, pov crotch, pov across table, pov doorway, profile, downblouse, close up of ~,head out of frame, fisheye, foreshortening, implied pantyshot, wide shot, dynamic angle
 附录3：常用漫画动效tags：

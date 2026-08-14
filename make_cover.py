@@ -27,24 +27,19 @@ def _load_cover_meta(json_path):
 
 
 def _split_title_one_or_two_lines(text):
-    """短标题一行；长标题两行，优先按分隔符拆分。"""
-    text = str(text or "").strip()
-    if not text:
-        return [""]
-    if len(text) <= 14:
+    """Match the vertical cover title split: short titles stay whole; long titles split once."""
+    text = str(text or "")
+    if len(text) <= 9:
         return [text]
 
-    separators = [',', '，', ' ', '_', '、', '—', '-', ':', '：', '。', '！', '？']
+    separators = [',', '，', ' ', '_', '、', '—', '-', ':', '：']
     for sep in separators:
         if sep in text:
-            left, right = text.split(sep, 1)
-            left = left.strip()
-            right = right.strip()
-            if left and right:
-                return [left, right]
+            parts = text.split(sep, 1)
+            return [parts[0], parts[1] if len(parts) > 1 else ""]
 
     mid = len(text) // 2
-    return [text[:mid].strip(), text[mid:].strip()]
+    return [text[:mid], text[mid:]]
 
 
 def make_manga_cover(
@@ -294,16 +289,16 @@ def make_manga_cover_landscape(
         ctx.fill()
         ctx.restore()
 
-    # 2) 标题：靠下区域，横排，右端对齐，1~2 行
+    # 2) Title: lower-left middle area, left aligned, 1-2 lines.
     title_lines = [line for line in _split_title_one_or_two_lines(title) if line]
     if not title_lines:
         title_lines = [title]
 
     title_font_size = int(height * (0.11 if len(title_lines) == 1 else 0.09))
     title_line_height = title_font_size * 1.2
-    title_left = width*0.02
-    # 相比原先位置略向上
-    title_center_y = height * 0.62
+    title_left = width * 0.02
+    # Title in the lower-left middle area.
+    title_center_y = height * 0.64
 
     ctx.save()
     ctx.select_font_face(
@@ -340,16 +335,17 @@ def make_manga_cover_landscape(
             stroke_width=max(2, title_font_size * 0.12),
         )
 
-    # 3) 说明文字：右上，右对齐
-    footer_lines = ["AI生成"]
-    if str(original_author or "").strip():
-        footer_lines.append(f"原文作者:{str(original_author).strip()}")
-    footer_lines.append(f"漫画作者:{manga_author}")
+    # 3) Annotation block: upper-left middle area, left aligned.
+    footer_lines = [
+        "AI生成",
+        f"原文作者:{str(original_author or '').strip()}",
+        f"漫画改编:{manga_author}",
+    ]
 
     footer_font_size = int(height * 0.06)
     footer_line_height = footer_font_size * 1.25
-    right_margin_limit = width * 0.96
-    footer_bottom_baseline = height * 0.93
+    footer_left = title_left
+    footer_top_baseline = height * 0.34
 
     ctx.save()
     ctx.select_font_face(
@@ -361,10 +357,27 @@ def make_manga_cover_landscape(
     footer_ascent, footer_descent, _, _, _ = ctx.font_extents()
     ctx.restore()
 
-    # 大幅下移后略微上移：与标题区之间留出一点间距
-    start_y = footer_bottom_baseline - (len(footer_lines) - 1) * footer_line_height
+    start_y = footer_top_baseline
+    footer_bottom_boundary = start_y + (len(footer_lines) - 1) * footer_line_height + footer_descent
+    title_top_boundary = first_title_baseline - title_ascent
+    separator_y = (footer_bottom_boundary + title_top_boundary) / 2
+    separator_x1 = title_left
+    separator_x2 = title_left + width * 0.48
 
-    # 4) 分隔线：位于标题与说明文字中间，黑色，长度为半张图，靠右
+    ctx.save()
+    ctx.set_line_cap(cairo.LINE_CAP_BUTT)
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_line_width(max(4, height * 0.014))
+    ctx.move_to(separator_x1, separator_y)
+    ctx.line_to(separator_x2, separator_y)
+    ctx.stroke()
+    ctx.set_source_rgb(1, 1, 1)
+    ctx.set_line_width(max(2, height * 0.008))
+    ctx.move_to(separator_x1, separator_y)
+    ctx.line_to(separator_x2, separator_y)
+    ctx.stroke()
+    ctx.restore()
+
     for i, line in enumerate(footer_lines):
         ctx.save()
         ctx.select_font_face(
@@ -378,7 +391,7 @@ def make_manga_cover_landscape(
 
         draw_stroked_text(
             line,
-            right_margin_limit - w - x_bearing,
+            footer_left - x_bearing,
             start_y + i * footer_line_height,
             font_size=footer_font_size,
             fill_color=(0, 0, 0),

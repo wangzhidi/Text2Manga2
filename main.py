@@ -12,10 +12,16 @@ from dialog import add_dialog_and_text
 from rename import rename_files_in_book
 
 
-book=["8Mr-白熊", "8sjz-凌风", "8ZeroEdge"]
+book=["7若希LR"]
 
-chapters=None
-force=False    
+# chapters="星穹姐弟在学"
+chapters="星野想要和你"
+# chapters="一个个都惦记"
+# chapters="在外沾花惹草"
+# chapters="你就是我的世"
+# chapters="请让我永远深"
+# chapters="为了防止你被"
+force=True    
 
 def main(): 
     """主入口函数，依次执行三个步骤"""   

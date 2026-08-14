@@ -4,9 +4,6 @@ import os
 import shutil
 from pathlib import Path
 
-
-
-
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout,
     QProgressBar
@@ -20,7 +17,7 @@ from PIL.PngImagePlugin import PngInfo
 from make_cover import make_manga_cover, make_manga_cover_landscape
 
 
-INPUT_DIR = r"with_text\7川一KULA\被不良少_2"
+INPUT_DIR = r"with_text\7曳枪上马\早知道，还得"
 FINAL_DIR = f"{INPUT_DIR}_final"
 OUTPUT_COVER = f"{FINAL_DIR}\\000.png"
 OUTPUT_COVER_LANDSCAPE = f"{FINAL_DIR}\\Z01.png"

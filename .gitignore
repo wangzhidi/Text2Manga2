@@ -1,47 +1,64 @@
-# ===== 大型图片/输出文件夹 =====
-image/
-final/
-bgm/
-books/
-script/
-with_text/
-models/
-原图一期/
-原图二期/
-原图三期/
-原图四期/
-原图五期/
-原图六期/
-乙向/
-起点小说/
+# ===== Python 缓存/构建 =====
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
 
-# ===== ML 模型文件 =====
-models/
+# ===== 本地环境 =====
+.env
+.venv/
+venv/
+
+# ===== IDE / OS =====
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# ===== 日志与临时产物 =====
+*.log
+output.png
+*.xlsx
+
+# ===== 大体积/运行时目录（保留最外层目录） =====
+bgm/*
+books/*
+final/*
+image/*
+models/*
+private_profiles/*
+script/*
+sessions/*
+users/*
+with_text/*
+z其他/*
+__bilibili_preview_cache__/*
+deploy/bin/*
+test_tts_out/*
+
+!bgm/.gitkeep
+!books/.gitkeep
+!final/.gitkeep
+!image/.gitkeep
+!models/.gitkeep
+!private_profiles/.gitkeep
+!script/.gitkeep
+!sessions/.gitkeep
+!users/.gitkeep
+!with_text/.gitkeep
+!z其他/.gitkeep
+!__bilibili_preview_cache__/.gitkeep
+!deploy/bin/.gitkeep
+!test_tts_out/.gitkeep
+
+# ===== 模型/二进制大文件（全局） =====
 *.pt
 *.bin
 *.param
-*.exe
-*.csv
-
-# ===== Python 缓存 =====
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# ===== 环境变量（含敏感信息）=====
-.env
-
-# ===== 运行时数据 =====
-sessions/
-users/
-private_profiles/
-
-# ===== 临时/测试输出 =====
-output.png
-z其他/
-*.xlsx
-
-# ===== 杂项 =====
-*.log
-__bilibili_preview_cache__/
+*.onnx
+*.ckpt

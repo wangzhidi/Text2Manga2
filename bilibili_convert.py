@@ -23,6 +23,7 @@ from PyQt5.QtWidgets import (
     QMessageBox,
     QPushButton,
     QScrollArea,
+    QSizePolicy,
     QSlider,
     QTextEdit,
     QVBoxLayout,
@@ -35,10 +36,12 @@ from manga_to_video import make_video
 
 
 
-INPUT_FOLDER = r"C:\UserTemp\Visual Studio Code\Text2Manga2\final\原图一期\芭芭拉的专属壮丁"
-
+INPUT_FOLDER = r"C:\UserTemp\Visual Studio Code\Text2Manga2\final\原图四期\调休，遇到淋雨卡"
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
-DEFAULT_TAGS = ["欢快"]
+IMAGE_GRID_COLUMNS = 4
+IMAGE_TILE_MIN_WIDTH = 220
+IMAGE_PREVIEW_HEIGHT = 250
+DEFAULT_TAGS = ["宁静"]
 MANGA_AUTHOR = "很大只狸花"
 PREVIEW_CACHE_DIR = Path("__bilibili_preview_cache__")
 
@@ -429,21 +432,40 @@ class ImageTile(QFrame):
     def __init__(self, path):
         super().__init__()
         self.path = path
+        self.pixmap = QPixmap(str(path))
         self.setFrameShape(QFrame.StyledPanel)
         self.setStyleSheet("QFrame { border: 1px solid #ddd; }")
+        self.setMinimumWidth(IMAGE_TILE_MIN_WIDTH)
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         layout = QVBoxLayout(self)
         layout.setContentsMargins(6, 6, 6, 6)
 
-        pixmap = QPixmap(str(path))
-        label = QLabel()
-        label.setFixedSize(170, 250)
-        label.setAlignment(Qt.AlignCenter)
-        label.setPixmap(pixmap.scaled(label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+        self.image_label = QLabel()
+        self.image_label.setMinimumWidth(IMAGE_TILE_MIN_WIDTH)
+        self.image_label.setFixedHeight(IMAGE_PREVIEW_HEIGHT)
+        self.image_label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.image_label.setAlignment(Qt.AlignCenter)
+        self.update_preview()
         name = QLabel(path.name)
         name.setAlignment(Qt.AlignCenter)
         name.setWordWrap(True)
-        layout.addWidget(label)
+        layout.addWidget(self.image_label)
         layout.addWidget(name)
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        self.update_preview()
+
+    def update_preview(self):
+        if self.pixmap.isNull():
+            return
+        self.image_label.setPixmap(
+            self.pixmap.scaled(
+                self.image_label.size(),
+                Qt.KeepAspectRatio,
+                Qt.SmoothTransformation,
+            )
+        )
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -503,6 +525,8 @@ class BilibiliConvertWindow(QWidget):
         left.addWidget(QLabel("横屏封面候选图"))
         self.image_grid = QGridLayout()
         self.image_grid.setSpacing(8)
+        for column in range(IMAGE_GRID_COLUMNS):
+            self.image_grid.setColumnStretch(column, 1)
         image_container = QWidget()
         image_container.setLayout(self.image_grid)
         scroll = QScrollArea()
@@ -512,7 +536,12 @@ class BilibiliConvertWindow(QWidget):
         main.addLayout(left, 4)
 
         right = QVBoxLayout()
-        right.addWidget(QLabel("BGM 候选"))
+        bgm_header = QHBoxLayout()
+        bgm_header.addWidget(QLabel("BGM 候选"))
+        refresh_bgm_btn = QPushButton("换一批")
+        refresh_bgm_btn.clicked.connect(self.refresh_bgm_candidates)
+        bgm_header.addWidget(refresh_bgm_btn)
+        right.addLayout(bgm_header)
         self.bgm_container = QVBoxLayout()
         right.addLayout(self.bgm_container)
         right.addWidget(QLabel("播放进度"))
@@ -545,7 +574,7 @@ class BilibiliConvertWindow(QWidget):
             tile = ImageTile(path)
             tile.clicked.connect(self.choose_cover)
             self.tiles.append(tile)
-            self.image_grid.addWidget(tile, index // 5, index % 5)
+            self.image_grid.addWidget(tile, index // IMAGE_GRID_COLUMNS, index % IMAGE_GRID_COLUMNS)
         self.log(f"已加载 {len(paths)} 张无字幕原图。")
 
     def choose_cover(self, path):

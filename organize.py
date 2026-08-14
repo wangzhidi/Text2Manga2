@@ -24,6 +24,12 @@ import shutil
 from pathlib import Path
 from typing import Optional
 
+MAX_FILENAME_LEN = 8
+
+PART_LABEL_PATTERN = re.compile(
+    r"(第[零〇一二三四五六七八九十百千万两\d]+[章节话回部集卷篇]|[上中下前后][篇部卷集]|序章|终章|番外)"
+)
+
 # ──────────────────────────────────────────────
 # 工具函数（与 rename.py 保持一致，独立实现避免互相依赖）
 # ──────────────────────────────────────────────
@@ -69,7 +75,27 @@ def sanitize_filename(name: str, max_len: int = 8) -> str:
     return name
 
 
-def resolve_unique_name(used_names: set, base_name: str, max_len: int = 8) -> str:
+def make_rename_base(title: str, max_len: int = MAX_FILENAME_LEN) -> str:
+    """Build the shortened filename, preserving chapter/part labels when present."""
+    cleaned = sanitize_filename(title, max_len=max(len(title), max_len))
+    label_match = PART_LABEL_PATTERN.search(cleaned)
+    label = label_match.group(1) if label_match else ""
+
+    if not label or label in cleaned[:max_len]:
+        return sanitize_filename(cleaned, max_len=max_len)
+
+    if len(label) >= max_len:
+        return sanitize_filename(label, max_len=max_len)
+
+    prefix_len = max_len - len(label)
+    prefix = cleaned[:prefix_len].rstrip(" .")
+    if not prefix:
+        return sanitize_filename(label, max_len=max_len)
+
+    return sanitize_filename(f"{prefix}{label}", max_len=max_len)
+
+
+def resolve_unique_name(used_names: set, base_name: str, max_len: int = MAX_FILENAME_LEN) -> str:
     """
     在已用名称集合中找到一个不重复的名称。
     重名时追加 _2, _3 ... 并保证总长度不超过 max_len。
@@ -148,8 +174,8 @@ def organize(book_id: str, dry_run: bool = False) -> None:
             skipped += 1
             continue
 
-        base_name = sanitize_filename(first_line, max_len=8)
-        new_name  = resolve_unique_name(used_names, base_name, max_len=8)
+        base_name = make_rename_base(first_line, max_len=MAX_FILENAME_LEN)
+        new_name  = resolve_unique_name(used_names, base_name, max_len=MAX_FILENAME_LEN)
         used_names.add(new_name)
 
         # ── 2. 定位源文件夹 ───────────────────────────────
