@@ -31,22 +31,15 @@ pip install -r requirements.txt
 ```env
 # LLM（兼容 OpenAI API 的端点，如 Claude）
 GEMINI_API_URL=https://your-api-endpoint/v1
-LLM_API_KEY=["key1", "key2"]
-LLM_MODEL=claude-opus-4-6
+LLM_API_KEY=["sk-xxxx"]
 
 # NovelAI 图像生成
-NA_API_KEY=["novelai-key1"]
-NOVELAI_MODEL=nai-diffusion-4-curated-preview
-NOVELAI_STEPS=28
-NOVELAI_SCALE=5.0
-NOVELAI_SAMPLER=k_euler_ancestral
+NA_API_KEY=["pst-xxxx"]
 
 # 风格提示词（追加到每帧正/负向提示）
-STYLE_POS=masterpiece, best quality
-STYLE_NEG=lowres, bad anatomy
+STYLE_POS=,[[[artist:kedama_milk]]],{{{saintshiro}}},[kazutake_hazano],artist:ciloranko,artist:suyamori, {artist:iumu ::,,0.65:: artist:icecake ::,{reoen ::,,1.4::artsit:chen_bin::,[shuri_\(84k\)],{{rin_yuu}},artist:mignon,[[[ningen mame]]],year 2024
+STYLE_NEG=blurry, lowres, error, film grain, scan artifacts, worst quality, bad quality, jpeg artifacts, very displeasing, chromatic aberration, logo, dated, signature, multiple views, gigantic breasts, blurry, lowres, error, film grain, scan artifacts, worst quality, bad quality, jpeg artifacts, very displeasing, chromatic aberration, logo, dated, signature, multiple views, 2::artist_collaboration::
 
-# Web 应用密钥（请替换为随机强密钥）
-JWT_SECRET=change-me-in-production
 ```
 
 ### 3. 启动 Web 应用
